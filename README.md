@@ -1,2 +1,1 @@
-# holbertonschool-interview
-Interview Preparation - Algorithms
+# 👩🏻‍💻📋📝Interview Preparation - Algorithms 👔💼✍🏻
