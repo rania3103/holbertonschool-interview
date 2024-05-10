@@ -16,7 +16,7 @@ def canUnlockAll(boxes):
         key = keys.pop()
         visited.append(key)
         for new in boxes[key]:
-            if new not in visited:
+            if new not in visited and key < len(boxes):
                 keys.append(new)
     no_dup = set(visited)
     if len(no_dup) != len(boxes):
