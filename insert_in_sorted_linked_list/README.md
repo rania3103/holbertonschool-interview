@@ -1,1 +1,1 @@
-# Insert in sorted linked list ➕🔗⛓️
+# Insert in sorted linked list 🔗⛓️
