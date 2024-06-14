@@ -34,13 +34,16 @@ int is_palindrome(listint_t **head)
 	for (i = 0; i < length; i++)
 		rev_stri[i] = stri[length - 1 - i];
 	rev_stri[i] = '\0';
-	if (length == 0 || (strcmp(stri, rev_stri) == 0))
+	for (i = 0; i < length; i++)
 	{
-		free(stri);
-		free(rev_stri);
-		return (1);
+		if (stri[i] != rev_stri[i])
+		{
+			free(stri);
+			free(rev_stri);
+			return (0);
+		}
 	}
 	free(stri);
 	free(rev_stri);
-	return (0);
+	return (1);
 }
