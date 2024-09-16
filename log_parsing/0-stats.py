@@ -25,7 +25,7 @@ if __name__ == "__main__":
     try:
         for line in sys.stdin:
             try:
-                words = line.split()
+                words = line.split(' ')
                 if len(words) == 6:
                     file_size = int(words[5])
                     code = int(words[4])
