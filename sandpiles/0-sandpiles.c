@@ -64,6 +64,26 @@ void toppling_round(int grid[3][3])
 	}
 }
 /**
+ * print_grid_ - Print 3x3 grid
+ * @grid: 3x3 grid
+ *
+ */
+void print_grid_(int grid[3][3])
+{
+	int i, j;
+
+	for (i = 0; i < 3; i++)
+	{
+		for (j = 0; j < 3; j++)
+		{
+			if (j)
+				printf(" ");
+			printf("%d", grid[i][j]);
+		}
+		printf("\n");
+	}
+}
+/**
  * sandpiles_sum - computes the sum of two sandpiles
  * @grid1:Left 3x3 grid
  * @grid2:Right 3x3 grid
@@ -82,7 +102,7 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 	while (!check_is_stable(grid1))
 	{
 		printf("=\n");
-		print_grid(grid1);
+		print_grid_(grid1);
 		toppling_round(grid1);
 	}
 }
