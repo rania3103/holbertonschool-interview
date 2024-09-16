@@ -1,18 +1,9 @@
 #!/usr/bin/python3
-import sys
 """a script that reads stdin line by line and computes metrics"""
+import sys
 status_code = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
 numb_lines = 0
 tot_size = 0
-
-
-def print_statistics():
-    """a function that prints statistics of the log"""
-    print(f'File size: {tot_size}')
-    for code in sorted(status_code.keys()):
-        if status_code[code] > 0:
-            print(f'{code}: {status_code[code]}')
-
 
 try:
     for line in sys.stdin:
@@ -26,9 +17,15 @@ try:
                     tot_size += file_size
                 numb_lines += 1
                 if numb_lines % 10 == 0:
-                    print_statistics()
+                    print(f'File size: {tot_size}')
+                    for code in sorted(status_code.keys()):
+                        if status_code[code] > 0:
+                            print(f'{code}: {status_code[code]}')
         except ValueError:
             continue
 
 except KeyboardInterrupt:
-    print_statistics()
+    print(f'File size: {tot_size}')
+    for code in sorted(status_code.keys()):
+        if status_code[code] > 0:
+            print(f'{code}: {status_code[code]}')
