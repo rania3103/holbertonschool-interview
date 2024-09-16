@@ -7,6 +7,7 @@ tot_size = 0
 
 
 def print_statistics():
+    """a function that prints statistics of the log"""
     print(f'File size: {tot_size}')
     for code in sorted(status_code.keys()):
         if status_code[code] > 0:
