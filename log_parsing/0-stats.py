@@ -24,18 +24,15 @@ if __name__ == "__main__":
 
     try:
         for line in sys.stdin:
-            try:
+                numb_lines += 1
                 words = line.split(' ')
                 if len(words) > 2:
                     file_size = int(words[-1])
-                    code = words[-2]
                     tot_size += file_size
+                    code = words[-2]
                     if code in status_code:
                         status_code[code] += 1
-                    numb_lines += 1
                     if numb_lines % 10 == 0:
                         print_statistics()
-            except ValueError:
-                continue
-    except KeyboardInterrupt:
+    finally:
         print_statistics()
