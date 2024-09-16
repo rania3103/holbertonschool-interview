@@ -27,11 +27,10 @@ if __name__ == "__main__":
             try:
                 words = line.split(' ')
                 if len(words) == 6:
-                    file_size = int(words[5])
+                    tot_size += int(words[5])
                     code = int(words[4])
                     if code in status_code.keys():
                         status_code[code] += 1
-                        tot_size += file_size
                     numb_lines += 1
                     if numb_lines % 10 == 0:
                         print_statistics()
