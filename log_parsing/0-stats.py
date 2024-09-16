@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-"""a script that reads stdin line by line and computes metrics"""
 import sys
+"""a script that reads stdin line by line and computes metrics"""
 status_code = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
 numb_lines = 0
 tot_size = 0
