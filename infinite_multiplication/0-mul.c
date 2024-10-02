@@ -56,11 +56,6 @@ int main(int argc, char *argv[])
 		len_num2++;
 	total_len = len_num1 + len_num2;
 	result = malloc(total_len);
-	if (!result)
-	{
-		print_complete_string("Error");
-		exit(98);
-	}
 	for (i = 0; i < total_len; i++)
 		result[i] = 0;
 	for (i = len_num1 - 1; i >= 0; i--)
