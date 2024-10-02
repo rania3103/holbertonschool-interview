@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
 			result[i + j] += sum / 10;
 		}
 	}
-	while (pos_zero < total_len && result[pos_zero] == 0)
+	while (pos_zero < total_len - 1 && result[pos_zero] == 0)
 		pos_zero++;
 	for (i = pos_zero; i < total_len; i++)
 		result[i] += '0';
