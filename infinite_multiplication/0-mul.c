@@ -39,6 +39,10 @@ char *multiply(char *num1, char *num2)
 	}
 	int *res = malloc((len_num1 + len_num2 + 1) * sizeof(int));
 
+	if (!res)
+	{
+		free(res);
+	}
 	for (i = 0; i < len_num1 + len_num2; i++)
 	{
 		res[i] = 0;
@@ -59,6 +63,10 @@ char *multiply(char *num1, char *num2)
 	}
 	char *final_res = malloc(len_num1 + len_num2 - pos_zero + 1);
 
+	if (!final_res)
+	{
+		free(final_res);
+	}
 	for (f = pos_zero; f < len_num1 + len_num2; f++)
 	{
 		final_res[f - pos_zero] = res[f] + '0';
