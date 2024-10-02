@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
 	while (num2[len_num2])
 		len_num2++;
 	total_len = len_num1 + len_num2;
-	result = malloc(total_len + 1);
+	result = malloc(total_len);
 	if (!result)
 	{
 		print_complete_string("Error");
