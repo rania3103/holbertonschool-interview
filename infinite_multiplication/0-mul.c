@@ -30,23 +30,15 @@ char *multiply(char *num1, char *num2)
 	int i, j, sum, mul, f, pos_zero = 0;
 
 	while (num1[len_num1])
-	{
 		len_num1++;
-	}
 	while (num2[len_num2])
-	{
 		len_num2++;
-	}
 	int *res = malloc((len_num1 + len_num2 + 1) * sizeof(int));
 
 	if (!res)
-	{
-		free(res);
-	}
+		return (NULL);
 	for (i = 0; i < len_num1 + len_num2; i++)
-	{
 		res[i] = 0;
-	}
 	for (i = len_num1 - 1; i >= 0; i--)
 	{
 		for (j = len_num2 - 1; j >= 0; j--)
@@ -58,14 +50,13 @@ char *multiply(char *num1, char *num2)
 		}
 	}
 	while (pos_zero < len_num1 + len_num2 && res[pos_zero] == 0)
-	{
 		pos_zero++;
-	}
 	char *final_res = malloc(len_num1 + len_num2 - pos_zero + 1);
 
 	if (!final_res)
 	{
-		free(final_res);
+		free(res);
+		return (NULL);
 	}
 	for (f = pos_zero; f < len_num1 + len_num2; f++)
 	{
