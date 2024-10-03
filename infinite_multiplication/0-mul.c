@@ -11,9 +11,7 @@ int is_digit(char *str)
 	while (str[i])
 	{
 		if (str[i] < '0' || str[i] > '9')
-		{
 			return (0);
-		}
 		i++;
 	}
 	return (1);
@@ -34,6 +32,14 @@ void print_complete_string(char *ch)
 	_putchar('\n');
 }
 /**
+ * print_zero - prints character 0 with new line
+ */
+void print_zero(void)
+{
+	_putchar('0');
+	_putchar('\n');
+}
+/**
  * main - prints the result of the product of 2 numbers
  * @argc: number of arguments
  * @argv: array of argument values
@@ -41,8 +47,9 @@ void print_complete_string(char *ch)
  */
 int main(int argc, char *argv[])
 {
-	char *num1, *num2, *result;
-	int total_len, len_num1 = 0, len_num2 = 0, i, mul, sum, j, pos_zero = 0;
+	char *num1, *num2;
+	int total_len, len_num1 = 0, len_num2 = 0, i,
+	mul, sum, j, *result, pos_zero = 0;
 
 	if (argc != 3 || !is_digit(argv[1]) || !is_digit(argv[2]))
 	{
@@ -50,12 +57,12 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 	num1 = argv[1], num2 = argv[2];
-	while (num1[len_num1])
+	while (num1[len_num1] != '\0')
 		len_num1++;
-	while (num2[len_num2])
+	while (num2[len_num2] != '\0')
 		len_num2++;
 	total_len = len_num1 + len_num2;
-	result = (char *)malloc(total_len + 1);
+	result = malloc(total_len * sizeof(int));
 	for (i = 0; i < total_len; i++)
 		result[i] = 0;
 	for (i = len_num1 - 1; i >= 0; i--)
@@ -68,17 +75,16 @@ int main(int argc, char *argv[])
 			result[i + j] += sum / 10;
 		}
 	}
-	for (i = pos_zero; i < total_len; i++)
-		result[i] += '0';
-	while (pos_zero < total_len && result[pos_zero] == '0')
+	while (pos_zero < total_len && result[pos_zero] == 0)
 		pos_zero++;
 	if (pos_zero == total_len)
+		print_zero();
+	else
 	{
-		_putchar('0');
+		for (i = pos_zero; i < total_len; i++)
+			_putchar(result[i] + '0');
 		_putchar('\n');
 	}
-	else
-		print_complete_string(result + pos_zero);
 	free(result);
 	return (0);
 }
