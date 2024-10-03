@@ -54,8 +54,8 @@ int main(int argc, char *argv[])
 		len_num1++;
 	while (num2[len_num2])
 		len_num2++;
-	total_len = len_num1 + len_num2 - 2;
-	result = (char *)malloc(total_len);
+	total_len = len_num1 + len_num2;
+	result = (char *)malloc(total_len + 1);
 	for (i = 0; i < total_len; i++)
 		result[i] = 0;
 	for (i = len_num1 - 1; i >= 0; i--)
