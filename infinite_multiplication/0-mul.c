@@ -17,27 +17,25 @@ int is_digit(char *str)
 	return (1);
 }
 /**
- * print_complete_string - prints a complete string
- * @ch: string to be printed
- */
-void print_complete_string(char *ch)
-{
-	int i = 0;
-
-	while (ch[i])
-	{
-		_putchar(ch[i]);
-		i++;
-	}
-	_putchar('\n');
-}
-/**
  * print_zero - prints character 0 with new line
  */
 void print_zero(void)
 {
 	_putchar('0');
 	_putchar('\n');
+}
+/**
+ * print_error - prints error and exit with code 98
+ */
+void print_error(void)
+{
+	char *ch = "Error";
+	int i;
+
+	for (i = 0; ch[i]; i++)
+		_putchar(ch[i]);
+	_putchar('\n');
+	exit(98);
 }
 /**
  * main - prints the result of the product of 2 numbers
@@ -52,10 +50,7 @@ int main(int argc, char *argv[])
 	mul, sum, j, *result, pos_zero = 0;
 
 	if (argc != 3 || !is_digit(argv[1]) || !is_digit(argv[2]))
-	{
-		print_complete_string("Error");
-		exit(98);
-	}
+		print_error();
 	num1 = argv[1], num2 = argv[2];
 	while (num1[len_num1] != '\0')
 		len_num1++;
@@ -63,6 +58,8 @@ int main(int argc, char *argv[])
 		len_num2++;
 	total_len = len_num1 + len_num2;
 	result = malloc(total_len * sizeof(int));
+	if (result == NULL)
+		print_error();
 	for (i = 0; i < total_len; i++)
 		result[i] = 0;
 	for (i = len_num1 - 1; i >= 0; i--)
