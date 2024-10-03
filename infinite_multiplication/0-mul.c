@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
 	while (num2[len_num2])
 		len_num2++;
 	total_len = len_num1 + len_num2;
-	result = malloc(total_len + 1);
+	result = (char *)malloc(total_len);
 	for (i = 0; i < total_len; i++)
 		result[i] = 0;
 	for (i = len_num1 - 1; i >= 0; i--)
@@ -68,11 +68,10 @@ int main(int argc, char *argv[])
 			result[i + j] += sum / 10;
 		}
 	}
-	while (pos_zero < total_len - 1 && result[pos_zero] == 0)
-		pos_zero++;
 	for (i = pos_zero; i < total_len; i++)
 		result[i] += '0';
-	result[total_len] = '\0';
+	while (pos_zero < total_len - 1 && result[pos_zero] == '0')
+		pos_zero++;
 	print_complete_string(result + pos_zero);
 	free(result);
 	return (0);
