@@ -70,10 +70,7 @@ int main(int argc, char *argv[])
 	total_len = len_num1 + len_num2;
 	result = malloc(total_len * sizeof(int));
 	if (result == NULL)
-	{
-		free(result);
 		print_error();
-	}
 	for (i = 0; i < total_len; i++)
 		result[i] = 0;
 	for (i = len_num1 - 1; i >= 0; i--)
