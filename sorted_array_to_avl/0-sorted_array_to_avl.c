@@ -35,7 +35,7 @@ avl_t *build_avl_tree(int *array, int start, int end, avl_t *parent)
  */
 avl_t *sorted_array_to_avl(int *array, size_t size)
 {
-	if (!array|| size == 0)
+	if (!array || size == 0)
 		return (NULL);
 	return (build_avl_tree(array, 0, size - 1, NULL));
 }
