@@ -34,7 +34,7 @@ int rec_advanced_binary(int *array, size_t left, size_t right, int value)
 	if (left > right)
 		return (-1);
 	print_values_searched(array, left, right);
-	mid = left + (right - left) / 2;
+	mid = (right + left) / 2;
 	if (array[mid] == value)
 	{
 		if (mid == left || array[mid - 1] != value)
