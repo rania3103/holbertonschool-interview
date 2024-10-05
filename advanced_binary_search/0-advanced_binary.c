@@ -31,21 +31,17 @@ int rec_advanced_binary(int *array, size_t left, size_t right, int value)
 {
 	size_t mid;
 
-	if (left > right)
+	if (left > right || left == right)
 		return (-1);
 	print_values_searched(array, left, right);
-	mid = (right + left) / 2;
-	if (array[mid] == value)
-	{
-		if (mid == left || array[mid - 1] != value)
-			return (mid);
-		else
-			return (rec_advanced_binary(array, left, mid, value));
-	}
-	else if (array[mid] > value)
-		return (rec_advanced_binary(array, left, mid - 1, value));
-	else
+	mid = (right - left) / 2 + left;
+	if (array[mid] == value && array[mid - 1] != value)
+		return (mid);
+	if (array[mid] >= value)
+		return (rec_advanced_binary(array, left, mid, value));
+	if (array[mid] <= value)
 		return (rec_advanced_binary(array, mid + 1, right, value));
+	return (-1);
 }
 /**
  * advanced_binary - searches for a value in a sorted array of integers.
