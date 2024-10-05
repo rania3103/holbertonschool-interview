@@ -42,10 +42,10 @@ int rec_advanced_binary(int *array, size_t left, size_t right, int value)
 		else
 			return (rec_advanced_binary(array, left, mid, value));
 	}
-	else if (array[mid] < value)
-		return (rec_advanced_binary(array, mid + 1, right, value));
-	else
+	else if (array[mid] > value)
 		return (rec_advanced_binary(array, left, mid - 1, value));
+	else
+		return (rec_advanced_binary(array, mid + 1, right, value));
 }
 /**
  * advanced_binary - searches for a value in a sorted array of integers.
