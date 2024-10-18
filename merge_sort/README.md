@@ -1,1 +1,1 @@
-# Merge Sort 🔀📶
+# Merge Sort🔀📶
