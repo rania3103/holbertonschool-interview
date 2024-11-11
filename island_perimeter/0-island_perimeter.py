@@ -3,8 +3,7 @@
 
 
 def island_perimeter(grid):
-    """0 represents water
-    1 represents land"""
+    """0 represents water, 1 represents land"""
     n_rows = len(grid)
     n_cols = len(grid[0])
     p = 0
