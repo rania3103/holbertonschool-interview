@@ -3,7 +3,10 @@
 
 
 def island_perimeter(grid):
-    """returns the perimeter of the island described in grid."""
+    """
+    returns the perimeter of the island described in grid.(0 represents water,
+    1 represents land)
+    """
     if not grid or not grid[0]:
         return 0
     n_rows = len(grid)
