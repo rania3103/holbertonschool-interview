@@ -3,8 +3,10 @@
 
 
 def island_perimeter(grid):
-    """The grid is a list of list of integers:0 represents water
-    and 1 represents land"""
+    """
+    The grid is a list of list of integers:0 represents water
+    and 1 represents land
+    """
 
     n_rows = len(grid)
     n_cols = len(grid[0])
