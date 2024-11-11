@@ -3,7 +3,9 @@
 
 
 def island_perimeter(grid):
-    """0 represents water and 1 represents land"""
+    """The grid is completely surrounded by water,
+    There is only one island (or nothing),
+    0 represents water and 1 represents land"""
     n_rows = len(grid)
     n_cols = len(grid[0])
     p = 0
