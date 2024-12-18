@@ -24,6 +24,7 @@ int *initialize_find_substring(int str_len, int nb_words, int *n)
 		*n = 0;
 		return (NULL);
 	}
+	free(used_words);
 	return (res_ind);
 }
 
@@ -45,11 +46,15 @@ int *find_substring(char const *s, char const **words, int nb_words, int *n)
 	int total_len = word_len * nb_words, match_count = 0;
 	int *res_ind = initialize_find_substring(str_len, nb_words, n), i, j, k;
 
+	if (!res_ind)
+		return (NULL);
 	for (i = 0; i <= str_len - total_len; i++)
 	{
 		int *used_words = malloc(nb_words * sizeof(int));
 		int is_valid = 1;
 
+		if (!used_words)
+			free(res_ind);
 		memset(used_words, 0, nb_words * sizeof(int));
 		for (j = 0; j < nb_words; j++)
 		{
